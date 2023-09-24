@@ -1,4 +1,4 @@
 openai
 numpy
 pandas
-gradio
+gradio==3.44.2
