@@ -1,5 +1,5 @@
 import openai
-from study.get_completion_from_messages import get_completion_from_messages
+from src.get_completion_from_messages import get_completion_from_messages
 from content_moderation import content_moderation, is_query_question
 from constants.constant import *
 

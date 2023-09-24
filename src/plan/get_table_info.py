@@ -1,6 +1,6 @@
 import openai
 import pandas as pd
-from study.get_completion_from_messages import get_completion_from_messages
+from src.get_completion_from_messages import get_completion_from_messages
 from content_moderation import *
 from constants.constant import database_columns,database_datalist
 

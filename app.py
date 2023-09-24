@@ -1,4 +1,4 @@
-import src.sql_generation import *
+from src.plan.sql_generation import *
 
 if __name__ == "__main__":
     user_input = '查询教师id'
