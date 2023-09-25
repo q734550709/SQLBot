@@ -5,6 +5,8 @@ from src.plan.text_to_sql import *
 from src.analysis.sql_observation import *
 from src.generate.sql_generation import *
 from src.study.answer_evaluation import *
+from src.get_api_key import *
+from src.get_completion_from_messages import *
 from constants.constants import constants
 
 # 解包constant中的常量
