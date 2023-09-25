@@ -1,8 +1,11 @@
 import json
 import os
 
+# 构建config.json文件的路径
+config_file_path = os.path.join("config", "config.json")
+
 # 读取配置文件
-with open("config.json", "r") as config_file:
+with open(config_file_path, "r") as config_file:
     config = json.load(config_file)
 
 # 设置环境变量

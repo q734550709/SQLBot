@@ -150,6 +150,8 @@ def process_user_message(user_input,
     system_message = f"""
     给定以下SQL表格信息，你的工作是根据用户的请求编写{hive_select} SQL查询,
     相关的口径定义为：{data_scope_definition}
+
+    注意你编写的SQL代码需要符合{hive_select} SQL函数的语法要求
     """
 
     prefix = 'SELECT '

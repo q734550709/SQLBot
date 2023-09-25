@@ -1,5 +1,5 @@
 import openai
-from src.study import get_completion_from_messages
+from src.get_completion_from_messages import get_completion_from_messages
 
 # 创建审查输入内容的函数，0为正常，>0为异常
 def content_moderation (eval_message):

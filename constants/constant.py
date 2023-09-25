@@ -149,3 +149,98 @@ database_datalist = [
 #口径定义说明
 data_scope_definition = \
 '''在班学员: bdp_dim.dim_classes_info_h中的status=100;'''
+
+
+connect_model = \
+"""- 主表：bdp_dw.dw_t_classes_student_h (别名：classes_student)
+- 左连接：bdp_dim.dim_classes_info_h (别名：classes_info)
+- 连接条件：classes_student表的data_dt等于classes_info表的data_dt, classes_student表的classes_id等于classes_info表的classes_id
+- 左连接：bdp_dim.dim_course_info_s (别名：course_info)
+- 连接条件：classes_info表的course_id等于course_info表的course_id
+- 左连接：bdp_dim.dim_teacher_info_h (别名：teacher_info)
+- 连接条件：classes_info表的teacher_id等于teacher_info表的teacher_id，classes_info表的data_dt等于teacher_info表的data_dt
+- 左连接：bdp_dim.dim_employee_info_h (别名：employee_info)
+- 连接条件：employee_info表的employee_id等于teacher_info表的employee_id，employee_info表的data_dt等于classes_student表的data_dt
+- 左连接：bdp_dim.dim_teacher_info_h (别名：ti)
+- 连接条件：ti表的employee_id等于employee_info表的leader_id，ti表的data_dt等于classes_student表的data_dt
+- 左连接：bdp_ads_data_ai_engineering.ads_teacher_comment_s (别名：comments)
+- 连接条件：comments表的teacher_id等于teacher_info表的teacher_id，comments表的user_id等于classes_student表的user_id, comments表的create_time的日期小于等于classes_student表的data_dt的日期
+"""
+
+select_model = \
+"""- 查询字段：从teacher_info表中选择teacher_id（别名"教师id"）, teacher_name（别名"教师姓名"）,
+ teacher_rank（别名"教师职级"），教师职级使用以下逻辑来计算：
+  - 如果教师职级不等于-1，则将教师职级转换为varchar(10)形式并在其前面加上字母"P"；
+  - 如果教师职级等于-1，则将职级标记为"无职级"
+- 查询字段：使用CASE语句：
+  - 根据teacher_info表nature_of_work的取值，对应值为1：全职，2：兼职，3:全职实习，5：小火苗, 不在上述范围置为null（别名"工作性质"）
+  - 根据teacher_info表job_type的取值，对应值为：1:辅导员;2:教研;3:培训师;4:教师; 5:未分配;6:课评师;7:年级组长,不在上述范围置为null；（别名"岗位类型"）
+- 查询字段：从ti表中选择teacher_name （别名"上级领导姓名"）
+- 查询字段：从employee_info表中选择department_first，department_second，department_third，department_fourth，department_fifth，department_sixth，别名分别为："一级部门","二级部门","三级部门","四级部门","五级部门","六级部门"
+
+- 统计字段：
+  - 对classes_student.user_id进行去重计数，别名为："在班人次"
+  - 对comments.user_id进行去重计数，别名为："学员评价覆盖数量"
+  - 对comments.create_time取最大值，别名为："最后一次评价填写时间"
+"""
+
+filter_model = \
+"""- 筛选条件：
+classes_info表的status不等于0，
+classes_student表的status不等于0，
+classes_info表的is_closed等于0，
+classes_info表的student_count大于0，
+course_info表的subject_type等于2，
+course_info表的course_type等于5，
+course_info表的teaching_method等于1，
+course_info表的teaching_mode不等于'2'，
+teacher_info表的job_type不在(0,5)，
+teacher_info表的status等于1，
+teacher_info表的teacher_name不包含'测试'，
+teacher_info表的teacher_nickname不包含'测试'，
+teacher_info表的introduce不包含'测试'，
+teacher_info表的grade_name不包含'测试'，
+classes_student表的data_dt等于'2023-06-27'
+"""
+
+groupby_model = \
+"""- 分组：teacher_info表的teacher_id, teacher_name, teacher_rank，teacher_rank使用以下逻辑来计算：
+  - 如果teacher_rank不等于-1，则将teacher_rank转换为varchar(10)形式并在其前面加上字母"P"；
+  - 如果teacher_rank等于-1，则将teacher_rank标记为"无职级"
+- 分组：使用CASE语句：
+  - teacher_info表nature_of_work的取值，对应值为1：全职，2：兼职，3:全职实习，5：小火苗, 不在上述范围置为null
+  - teacher_info表job_type的取值，对应值为：1:辅导员;2:教研;3:培训师;4:教师; 5:未分配;6:课评师;7:年级组长,不在上述范围置为null；
+- 分组：ti表的teacher_name
+- 分组：employee_info表的department_first，department_second，department_third，department_fourth，department_fifth，department_sixth
+"""
+
+model_example_list = [
+    [
+        '''- 主表：Customers (别名：c)
+        - 左连接：Orders (别名：o)
+        - 连接条件：c的id等于o表的customerId''',
+        '''- 查询字段：从c表中选择name（别名"Customers"）''',
+        '''- 筛选条件：o表的customerId不为null;''',
+        ''
+    ],
+    [
+        '- 主表：Scores',
+         '''- 查询字段：从Scores表中选择Score,
+         - 统计字段：对Score进行密集排名(排名不跳过)，排名顺序为对Score倒序，别名为：Rank''',
+         '',
+         ''
+    ],
+    [connect_model,select_model,filter_model,groupby_model]
+
+]
+
+question_examples=[
+    "今天天气怎么样？",
+    "查询老师的入职日期，以及距今天数",
+    "查询每个老师的第一节试听课的上课时间",
+    "查询每个老师至今上课次数，以及上课的小时数",
+    "查询当前公司每个部门的人数，并给出一级部门到六级部门的名称",
+    "查询当前每个系统班班级的在班学员人数",
+    "查询当前在职教师的id、昵称、一级到六级部门名称、入职时间",
+    "我想知道最近一次订单的付款时间"
+    ]
