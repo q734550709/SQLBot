@@ -1,6 +1,7 @@
 import openai
 from src.get_completion_from_messages import get_completion_from_messages
-from src.plan.content_moderation import content_moderation, is_query_question
+from src.plan.content_moderation import *
+from src.plan.get_table_info import *
 from constants.constants import constants
 
 # 解包constant中的常量
