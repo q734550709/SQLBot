@@ -103,54 +103,6 @@ CREATE TABLE bdp_dim.dim_employee_info_h (
 ) COMMENT "雇员信息表"; --记录了公司员工的部门信息
 '''
 
-
-# 创建列名称
-database_columns=["database", "table", "tableinfo", "tabledetail"]
-
-#添加信息
-database_datalist = [
-            ['bdp_dmd',
-            'dmd_classroom_student_h',
-            '课堂班级课程学生教师对应关系表',
-            dmd_classroom_student_h
-            ],
-            ['bdp_dw',
-            'dw_t_classes_student_h',
-            '学生班级信息表',
-            dw_t_classes_student_h
-            ],
-            ['bdp_dim',
-            'dim_stud_info_h',
-            '学生信息表',
-            dim_stud_info_h
-            ],
-            ['bdp_dim',
-            'dim_classes_info_h',
-            '班级信息表',
-            dim_classes_info_h
-            ],
-            ['bdp_dim',
-            'dim_course_info_s',
-            '课程信息表',
-            dim_course_info_s
-            ],
-            ['bdp_dim',
-            'dim_teacher_info_h',
-            '教师/老师信息表',
-            dim_teacher_info_h
-            ],
-            ['bdp_dim',
-            'dim_employee_info_h',
-            '雇员/员工信息表',
-            dim_employee_info_h
-            ]
-        ]
-
-#口径定义说明
-data_scope_definition = \
-'''在班学员: bdp_dim.dim_classes_info_h中的status=100;'''
-
-
 connect_model = \
 """- 主表：bdp_dw.dw_t_classes_student_h (别名：classes_student)
 - 左连接：bdp_dim.dim_classes_info_h (别名：classes_info)
@@ -214,33 +166,82 @@ groupby_model = \
 - 分组：employee_info表的department_first，department_second，department_third，department_fourth，department_fifth，department_sixth
 """
 
-model_example_list = [
-    [
-        '''- 主表：Customers (别名：c)
-        - 左连接：Orders (别名：o)
-        - 连接条件：c的id等于o表的customerId''',
-        '''- 查询字段：从c表中选择name（别名"Customers"）''',
-        '''- 筛选条件：o表的customerId不为null;''',
-        ''
-    ],
-    [
-        '- 主表：Scores',
-         '''- 查询字段：从Scores表中选择Score,
-         - 统计字段：对Score进行密集排名(排名不跳过)，排名顺序为对Score倒序，别名为：Rank''',
-         '',
-         ''
-    ],
-    [connect_model,select_model,filter_model,groupby_model]
 
-]
+constants = {
 
-question_examples=[
-    "今天天气怎么样？",
-    "查询老师的入职日期，以及距今天数",
-    "查询每个老师的第一节试听课的上课时间",
-    "查询每个老师至今上课次数，以及上课的小时数",
-    "查询当前公司每个部门的人数，并给出一级部门到六级部门的名称",
-    "查询当前每个系统班班级的在班学员人数",
-    "查询当前在职教师的id、昵称、一级到六级部门名称、入职时间",
-    "我想知道最近一次订单的付款时间"
-    ]
+    # 创建列名称
+    'database_columns': ["database", "table", "tableinfo", "tabledetail"],
+
+    #添加信息
+    'database_datalist' : [
+                ['bdp_dmd',
+                'dmd_classroom_student_h',
+                '课堂班级课程学生教师对应关系表',
+                dmd_classroom_student_h
+                ],
+                ['bdp_dw',
+                'dw_t_classes_student_h',
+                '学生班级信息表',
+                dw_t_classes_student_h
+                ],
+                ['bdp_dim',
+                'dim_stud_info_h',
+                '学生信息表',
+                dim_stud_info_h
+                ],
+                ['bdp_dim',
+                'dim_classes_info_h',
+                '班级信息表',
+                dim_classes_info_h
+                ],
+                ['bdp_dim',
+                'dim_course_info_s',
+                '课程信息表',
+                dim_course_info_s
+                ],
+                ['bdp_dim',
+                'dim_teacher_info_h',
+                '教师/老师信息表',
+                dim_teacher_info_h
+                ],
+                ['bdp_dim',
+                'dim_employee_info_h',
+                '雇员/员工信息表',
+                dim_employee_info_h
+                ]
+            ],
+
+    #口径定义说明
+    'data_scope_definition' : '''在班学员: bdp_dim.dim_classes_info_h中的status=100;''',
+
+    'model_example_list' : [
+        [
+            '''- 主表：Customers (别名：c)
+            - 左连接：Orders (别名：o)
+            - 连接条件：c的id等于o表的customerId''',
+            '''- 查询字段：从c表中选择name（别名"Customers"）''',
+            '''- 筛选条件：o表的customerId不为null;''',
+            ''
+        ],
+        [
+            '- 主表：Scores',
+             '''- 查询字段：从Scores表中选择Score,
+             - 统计字段：对Score进行密集排名(排名不跳过)，排名顺序为对Score倒序，别名为：Rank''',
+             '',
+             ''
+        ],
+        [connect_model,select_model,filter_model,groupby_model]
+
+    ],
+
+    'question_examples' : [
+        "今天天气怎么样？",
+        "查询老师的入职日期，以及距今天数",
+        "查询每个老师的第一节试听课的上课时间",
+        "查询每个老师至今上课次数，以及上课的小时数",
+        "查询当前公司每个部门的人数，并给出一级部门到六级部门的名称",
+        "查询当前每个系统班班级的在班学员人数",
+        "查询当前在职教师的id、昵称、一级到六级部门名称、入职时间",
+        "我想知道最近一次订单的付款时间"
+        ]
+}

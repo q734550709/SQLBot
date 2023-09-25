@@ -1,7 +1,10 @@
 import openai
 from src.get_completion_from_messages import get_completion_from_messages
-from content_moderation import content_moderation, is_query_question
-from constants.constant import *
+from src.plan.content_moderation import content_moderation, is_query_question
+from constants.constants import constants
+
+# 解包constant中的常量
+locals().update(constants)
 
 
 # 定义一个函数，返回列表中某个值的最后一个出现的索引

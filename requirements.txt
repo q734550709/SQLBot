@@ -2,3 +2,4 @@ openai
 numpy
 pandas
 gradio==3.44.2
+openpyxl

@@ -1,8 +1,11 @@
 import openai
 import pandas as pd
 from src.get_completion_from_messages import get_completion_from_messages
-from content_moderation import *
-from constants.constant import database_columns,database_datalist
+from src.plan.content_moderation import *
+from constants.constants import constants
+
+# 解包constant中的常量
+locals().update(constants)
 
 #生成表字典信息
 def generate_table_dic(database_datalist = database_datalist):

@@ -1,6 +1,14 @@
 import gradio as gr
-from src import *
-from constants import *
+from src.plan.content_moderation import *
+from src.plan.get_table_info import *
+from src.plan.text_to_sql import *
+from src.analysis.sql_observation import *
+from src.generate.sql_generation import *
+from src.study.answer_evaluation import *
+from constants.constants import constants
+
+# 解包constant中的常量
+locals().update(constants)
 
 with gr.Blocks() as demo:
     with gr.Row():
@@ -30,7 +38,7 @@ with gr.Blocks() as demo:
                             label='选择SQL语言类型'
                             )
                 is_current_table = gr.Checkbox(label='根据现有库表查询',value=True)
-                data_scope_definition = gr.Textbox(lines=2,
+                data_definition = gr.Textbox(lines=2,
                                                    max_lines=6,
                                                    value=data_scope_definition,
                                                    label="输入涉及的字段定义")
@@ -59,7 +67,7 @@ with gr.Blocks() as demo:
                                maxtoken,
                                hive_select,
                                is_current_table,
-                               data_scope_definition,
+                               data_definition,
                                data_df
                               ],
                        outputs=[input_text,chatbot])
