@@ -1,5 +1,6 @@
 import json
 import os
+import openai
 
 # 构建config.json文件的路径
 config_file_path = os.path.join("config", "config.json")

@@ -1,4 +1,5 @@
 import gradio as gr
+import openai
 from src.plan.content_moderation import *
 from src.plan.get_table_info import *
 from src.plan.text_to_sql import *

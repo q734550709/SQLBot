@@ -1,3 +1,4 @@
+import openai
 from src.get_completion_from_messages import get_completion_from_messages
 #详细解释
 def sql_explain(user_input,
