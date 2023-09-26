@@ -13,7 +13,7 @@ from constants.constants import constants
 # 解包constant中的常量
 locals().update(constants)
 
-with gr.Blocks() as demo:
+with gr.Blocks(theme='gradio/soft') as demo:
     with gr.Row():
         with gr.Column(scale=4):
             gr.Markdown('# SQLBot - 一个基于LLMs的SQL学习和工作平台')
