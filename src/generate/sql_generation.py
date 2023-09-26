@@ -10,7 +10,7 @@ def sql_generation(
     ):
 
     system_message = f"""
-    根据用户的描述写一段{sql_type}SQL代码，仅提供{sql_type}SQL代码：
+    根据用户的描述写一段{sql_type} SQL代码，仅提供{sql_type} SQL代码：
     """
 
     messages =  [
