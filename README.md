@@ -8,10 +8,10 @@
   ||
     <a href="https://huggingface.co/spaces/kkAIGC/SQLBot"><strong>在线体验</strong></a>  
 
-  <p align = "center">
-    [![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
-    [![GitHub Stars](https://img.shields.io/github/stars/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/stargazers)
-    [![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
+[![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![GitHub Stars](https://img.shields.io/github/stars/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
+
 </div>
 
 
