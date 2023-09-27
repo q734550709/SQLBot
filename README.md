@@ -9,15 +9,13 @@
     <a href="https://huggingface.co/spaces/kkAIGC/SQLBot"><strong>在线体验</strong></a>  
 </div>
 
-<div align="center">
 [![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![GitHub Stars](https://img.shields.io/github/stars/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
-</div>
 
 
-如果觉得 SQLBot 对您有帮助的话，请帮忙<a target="_blank" href='https://github.com/q734550709/SQLBot'><img src="https://img.shields.io/github/stars/q734550709/SQLBot.svg?style=flat-square&label=Stars&logo=github" alt="github star"/></a>
-的右上角点个⭐ Star 和 Fork，您的支持是项目变得更好最大的动力
+如果觉得 SQLBot 对您有帮助的话，请帮忙在<a target="_blank" href='https://github.com/q734550709/SQLBot'><img src="https://img.shields.io/github/stars/q734550709/SQLBot.svg?style=flat-square&label=Stars&logo=github" alt="github star"/></a>
+的右上角点个⭐ Star 和 Fork，谢谢
 </div>
 
 ## 视频介绍
@@ -79,3 +77,6 @@ SQLBot的流程结构，如下图所示
 
 - [deeplearning-ai](https://learn.deeplearning.ai/)
   -  DeepLearning.AI是一家专注于深度学习教育的在线学习平台。该网站由深度学习领域的知名专家Andrew Ng创立。提供了一系列的深度学习课程以及AI相关课程。
+
+- [openai-cookbook](https://github.com/openai/openai-cookbook/blob/main/examples/Backtranslation_of_SQL_queries.py)
+  - openai-cookbook是OpenAI官方提供的使用 OpenAI API 的示例和指南，本例子为反向翻译SQL为自然语言进行SQL选择。
