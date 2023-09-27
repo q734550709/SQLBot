@@ -4,14 +4,15 @@
 <div align="center">
   <h3>一个基于大语言模型的SQL学习和工作平台</h3>
   <p align = "center">
-    <a href=""><strong>视频介绍</strong></a>
+    <a href="https://"><strong>视频介绍</strong></a>
   ||
     <a href="https://huggingface.co/spaces/kkAIGC/SQLBot"><strong>在线体验</strong></a>  
+    [![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
+    [![GitHub Stars](https://img.shields.io/github/stars/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/stargazers)
+    [![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
 </div>
 
-[![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![GitHub Stars](https://img.shields.io/github/stars/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
+
 
 
 如果觉得 SQLBot 对您有帮助的话，请帮忙在<a target="_blank" href='https://github.com/q734550709/SQLBot'><img src="https://img.shields.io/github/stars/q734550709/SQLBot.svg?style=flat-square&label=Stars&logo=github" alt="github star"/></a>
