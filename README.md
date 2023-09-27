@@ -13,15 +13,13 @@
 [![GitHub Forks](https://img.shields.io/github/forks/q734550709/SQLBot)](https://github.com/q734550709/SQLBot/fork)
 
 </div>
-
-
-
-
+<div align="center">
 如果觉得 SQLBot 对您有帮助的话，请帮忙在<a target="_blank" href='https://github.com/q734550709/SQLBot'><img src="https://img.shields.io/github/stars/q734550709/SQLBot.svg?style=flat-square&label=Stars&logo=github" alt="github star"/></a>
 的右上角点个⭐ Star 和 Fork，谢谢
 </div>
 
 ## 视频介绍
+(视频录制中)
 
 ## 目录
 - [简介](#简介)
