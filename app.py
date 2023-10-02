@@ -1,3 +1,4 @@
+#导入所需的库
 import gradio as gr
 import openai
 from src.plan.content_moderation import *
@@ -10,9 +11,10 @@ from src.get_api_key import *
 from src.get_completion_from_messages import *
 from constants.constants import constants
 
-# 解包constant中的常量
+# 解包constants中的常量
 locals().update(constants)
 
+#gradio页面设置
 with gr.Blocks(theme='gradio/soft') as demo:
     with gr.Row():
         with gr.Column(scale=4):

@@ -17,6 +17,7 @@ def generate_table_dic(database_datalist = database_datalist):
     for index, row in database_df.iterrows():
         key = f"{row['database']}_{row['table']}"
         value = row['tabledetail']
+        #按照“库_表:表”信息的形式存储表信息字典
         table_dic[key] = value
 
     return table_dic
@@ -58,6 +59,7 @@ def database_tableinfo_generate(database_datalist = database_datalist):
     # 库表对应关系database_table_info
     return database_table_info
 
+#查询表信息的函数
 def query_table_info(user_message,
                      model = 'gpt-3.5-turbo-16k',
                      temperature = 0,
@@ -129,14 +131,16 @@ def generate_table_info(data_list, database_datalist=database_datalist):
 
     # 遍历data_list中的每一个元素data
     for data in data_list:
+        #判断生成的表里面是否在给定库表范围内，如果在，添加表详细信息
         table_name = data['database']+'_'+data['table']
         if table_name in table_dic:
             table_info = table_dic[table_name]
             data['table_detail'] = table_info
-        #如果得到的表没有在库表范围内，则去掉该元素
+        #如果得到的表没有在库表范围内，则去掉该元素（GPT会误生成不存在的库表信息）
         else:
             data_list.remove(data)
 
+    #生成判断后的库表&表信息，存在字符串中
     output_string = ["\n".join([f"'{k}':'{v}'" for k, v in item.items()]) for item in data_list]
     output_string = ';\n'.join(output_string)
     # 返回处理后的output_string

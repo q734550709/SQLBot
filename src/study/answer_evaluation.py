@@ -67,6 +67,7 @@ def question_choice(difficulty = '简单'):
     answer = random_simple_record['答案'].values[0]
     answer_explain = random_simple_record['可参考解析'].values[0]
 
+    #用于生成答案链接
     title_url = f"""### 本题链接：[{title}]({question_url})"""
     answer_explain = f"""### 答案解析见：[{title}]({answer_explain})"""
 

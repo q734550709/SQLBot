@@ -166,13 +166,13 @@ groupby_model = \
 - 分组：employee_info表的department_first，department_second，department_third，department_fourth，department_fifth，department_sixth
 """
 
-
+#设置常量
 constants = {
 
     # 创建列名称
     'database_columns': ["database", "table", "tableinfo", "tabledetail"],
 
-    #添加信息
+    #添加库表信息
     'database_datalist' : [
                 ['bdp_dmd',
                 'dmd_classroom_student_h',
@@ -214,6 +214,7 @@ constants = {
     #口径定义说明
     'data_scope_definition' : '''在班学员: bdp_dim.dim_classes_info_h中的status=100;''',
 
+    #设置SQL模板
     'model_example_list' : [
         [
             '''- 主表：Customers (别名：c)
@@ -234,6 +235,7 @@ constants = {
 
     ],
 
+    #自然语言问题例子
     'question_examples' : [
         "今天天气怎么样？",
         "查询老师的入职日期，以及距今天数",
