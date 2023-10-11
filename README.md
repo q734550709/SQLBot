@@ -51,11 +51,10 @@ SQLBot的流程结构，如下图所示
 
 
 ## 联系我们
-请先 Star 和 Fork，谢谢~
+请先 Star 和 Fork，加微信请备注"SQLBot"，谢谢~
 <p align="center">
   <img src="./assets/wechat.jpg" width="300px" />
 </p>
-加微信请备注"SQLBot"
 
 ## 致谢
 感谢以下项目和课程给予的知识和灵感
