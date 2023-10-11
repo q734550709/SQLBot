@@ -19,7 +19,9 @@
 </div>
 
 ## 视频介绍
-(视频录制中)
+
+https://github.com/q734550709/SQLBot/assets/platform_intro.mp4
+
 
 ## 目录
 - [产品简介](#产品简介)
