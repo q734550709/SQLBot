@@ -19,9 +19,9 @@
 </div>
 
 ## 视频介绍
-<video width="320" height="240" controls>
+<div>
   <source src="https://github.com/q734550709/SQLBot/raw/main/assets/platform_intro.mp4" type="video/mp4">
-</video>
+</div>
 
 ## 目录
 - [产品简介](#产品简介)
