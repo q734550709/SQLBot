@@ -19,7 +19,7 @@
 </div>
 
 ## 视频介绍
-[演示视频](./assets/platform_intro.mp4)
+[![演示视频](./assets/platform_intro.mp4)]
 
 ## 文章介绍
 [SQLBot项目介绍](https://zhuanlan.zhihu.com/p/659386169)
