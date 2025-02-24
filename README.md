@@ -4,8 +4,6 @@
 <div align="center">
   <h3>一个基于大语言模型的SQL学习和工作平台</h3>
   <p align = "center">
-    <a href="https://"><strong>视频介绍</strong></a>
-  ||
     <a href="https://huggingface.co/spaces/kkAIGC/SQLBot"><strong>在线体验</strong></a>  
 
 [![License](https://img.shields.io/github/license/alibaba/fastjson2?color=4D7A97&logo=apache)](https://www.apache.org/licenses/LICENSE-2.0.html)
