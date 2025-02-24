@@ -19,7 +19,7 @@
 </div>
 
 ## 视频介绍
-![演示视频](https://s19.aconvert.com/convert/p3r68-cdx67/9klzk-q63f0.gif)
+![演示视频](./assets/platform_intro.gif)
 
 ## 文章介绍
 [SQLBot项目介绍](https://zhuanlan.zhihu.com/p/659386169)
